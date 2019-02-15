@@ -3,6 +3,9 @@ body {
     color: #fffefc;
     background-color: #0f140d;
 }
+input:focus{
+    outline: none;
+}
 .main-wrap {
     max-width: 768px;
     margin: 0 auto;
