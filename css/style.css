@@ -37,6 +37,9 @@ input:focus{
 .input-box--submit:hover {
     background-color: rgba(55, 150, 52, 1);
 }
+.counter-wrap {
+    margin-top: 25px;
+}
 .task-list {
     margin: 30px 0;
     padding: 0;
