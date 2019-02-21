@@ -4,7 +4,6 @@ let counter = 1,
 function addTask() {
     let inputField = $('.input-box--input'),
         inputFieldValue = inputField.val(),
-        listItem = $('<li class="task-list--item" />'),
         taskCounter = () => counter++;
 
     if (!inputFieldValue) {
@@ -13,8 +12,10 @@ function addTask() {
         inputField.removeClass('empty-field').val('').attr('placeholder', 'Enter new task');
         $('#counter').text(taskCounter());
         taskList.push(inputFieldValue);
+        $('.task-list').html('');
 
         $.each(taskList, function () {
+            let listItem = $('<li class="task-list--item" />');
             $('.task-list').append(listItem.text(this));
         });
     }
