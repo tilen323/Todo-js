@@ -13,6 +13,7 @@ function addTask() {
         $('#counter').text(taskCounter());
         taskList.push(inputFieldValue);
         $('.task-list').html('');
+        inputField.focus();
 
         $.each(taskList, function () {
             let listItem = $('<li class="task-list--item" />');
