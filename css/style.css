@@ -12,7 +12,7 @@ input:focus{
     padding: 0 25px;
 }
 .input-box--input {
-    width: calc(100% - 110px);
+    width: calc(100% - 200px);
     padding: 12px 20px;
     border: 1px solid #ccc;
     box-sizing: border-box;
@@ -22,6 +22,16 @@ input:focus{
 }
 .input-box--input.empty-field::placeholder {
     color: #f40000;
+}
+.input-box--select {
+    width: 90px;
+    float: left;
+    height: 50px;
+    border: none;
+    padding-left: 20px;
+    -webkit-appearance: none;
+    cursor: pointer;
+    font-family: Helvetica;
 }
 .input-box--submit {
     background-color: rgba(55, 150, 52, 0.7);
@@ -52,11 +62,56 @@ input:focus{
     background-color: #494c48;
 }
 .task-list--item {
-    padding: 15px 20px;
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.25s ease-in-out;
+    position: relative;
+    padding-left: 150px;
+    height: 50px;
+    line-height: 50px;
 }
 .task-list--item:hover {
     background-color: #242923;
+}
+.todo-location {
+    position: absolute;
+    display: inline-block;
+    height: 50px;
+    left: 0;
+    top: 0;
+    line-height: 50px;
+    padding-left: 20px;
+    width: 100px;
+    border-right: 1px solid #666;
+}
+.done-true {
+    opacity: 0.2;
+}
+.done-true,
+.done-true span {
+    text-decoration: line-through;
+}
+.done-true:after {
+    content: "✔";
+    display: inline-block;
+    position: absolute;
+    right: 20px;
+    top: 0;
+    font-size: 22px;
+}
+.todo-location:before {
+    margin-right: 10px;
+}
+.todo-location.home:before {
+    content: "🏠";
+}
+.todo-location.school:before {
+    content: "🏫";
+}
+.todo-location.work:before {
+    content: "🔨";
+}
+.todo-date {
+    float: right;
+    margin-right: 55px;
 }

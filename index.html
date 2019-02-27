@@ -10,7 +10,13 @@
         <div class="main-wrap">
             <h1>TODO</h1>
             <div class="input-box">
-                <input class="input-box--input" type="text" placeholder="Enter new task" autofocus><input class="input-box--submit" type="submit" value="Submit">
+                <input class="input-box--input" type="text" placeholder="Enter new task" autofocus>
+                <select class="input-box--select">
+                    <option value="Home">Home</option>
+                    <option value="School">School</option>
+                    <option value="Work">Work</option>
+                </select>
+                <input class="input-box--submit" type="submit" value="Submit">
             </div>
             <div class="counter-wrap">
                 <span>Num. of tasks: <span id="counter">0</span></span>
@@ -19,6 +25,7 @@
         </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
         <script type="text/javascript" src="js/script.js"></script>
     </body>
 </html>
