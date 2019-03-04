@@ -36,9 +36,9 @@ function TodoList(taskName, listName) {
         $.each(list, function(i, val) {
             let listItem = null;
             if (val.getIsFinished() == false) {
-                listItem = $('<li class="task-list--item" item-id="' + i + '"></li>');
+                listItem = $('<li class="task-list--item ui-state-default" item-id="' + i + '"></li>');
             } else {
-                listItem = $('<li class="task-list--item done-true" item-id="' + i + '"></li>');
+                listItem = $('<li class="task-list--item ui-state-default done-true" item-id="' + i + '"></li>');
             }
             $('.task-list')
                 .append(listItem.text(val.getName())
@@ -55,9 +55,10 @@ function addTask() {
         inputFieldValue = inputField.val(),
         selectFieldValue = $('.input-box--select').val();
 
-    if (!inputFieldValue) {
-        inputField.addClass('empty-field').attr('placeholder', 'Please enter a new task');
-    } else {
+    try {
+        if (!inputFieldValue) {
+            throw 'Please enter a new task';
+        }
         inputField.removeClass('empty-field').val('').attr('placeholder', 'Enter new task');
         newObj = new TodoList(inputFieldValue, selectFieldValue);
         newObj.addToList(newObj);
@@ -65,6 +66,8 @@ function addTask() {
         $('#counter').text(numOfTasks);
         newObj.getList(list);
         inputField.focus();
+    } catch (err) {
+        inputField.addClass('empty-field').attr('placeholder', err);
     }
 }
 
@@ -77,4 +80,7 @@ function changeStatus() {
 
 let list = [];
 $('.input-box--submit').on('click', addTask);
-$('.task-list').on('click', 'li', changeStatus);
+$('.task-list').on('dblclick', 'li', changeStatus);
+
+$("#sortable").sortable();
+$("#sortable").disableSelection();
